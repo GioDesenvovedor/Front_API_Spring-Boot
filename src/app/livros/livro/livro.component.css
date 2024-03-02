@@ -1,0 +1,13 @@
+.container{
+    padding: 5%;
+}
+.tolbar{
+    
+    text-align: center;
+}
+.tabela{
+    text-align: center;
+}
+.mat-card-actions{
+    justify-content: center;
+  }

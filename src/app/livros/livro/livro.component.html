@@ -1,0 +1,69 @@
+<div class="container">
+  <mat-card-content class="card">
+    <mat-toolbar class="tolbar" color="primary">
+      Listas de Livros
+    </mat-toolbar>
+
+    <table mat-table [dataSource]="livro" class="mat-elevation-z8">
+      <div class="tabela"></div>
+      <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Name Column categoria -->
+      <ng-container matColumnDef="_id">
+        <th mat-header-cell *matHeaderCellDef>id</th>
+        <td mat-cell *matCellDef="let livro">{{ livro.id }}</td>
+      </ng-container>
+
+      <!-- Name Column categoria -->
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef>Titulo</th>
+        <td mat-cell *matCellDef="let livro">{{ livro.titulo }}</td>
+      </ng-container>
+
+      <!-- Name Column categoria -->
+      <ng-container matColumnDef="autor">
+        <th mat-header-cell *matHeaderCellDef>Autor</th>
+        <td mat-cell *matCellDef="let livro">{{ livro.autor }}</td>
+      </ng-container>
+
+      <!-- Name Column categoria -->
+      <ng-container matColumnDef="ano_publicacao">
+        <th mat-header-cell *matHeaderCellDef>Ano de publicação</th>
+        <td mat-cell *matCellDef="let livro">{{ livro.ano_publicacao }}</td>
+      </ng-container>
+
+      <!-- Actions Column  -->
+      <ng-container matColumnDef="btnAction">
+        <mat-header-cell *matHeaderCellDef>
+          <button
+            (click)="btnClic()"
+            mat-mini-fab
+            color="primary"
+            aria-label="adcionar"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let livro">
+          <button
+            mat-icon-button
+            (click)="btnDelete(livro)"
+            color="warn"
+            aria-label="delete "
+          >
+            <mat-icon>delete</mat-icon>
+
+          </button>
+          <button mat-icon-button color="accent" (click)="btnAtualizar(livro)" aria-label=" Atualizar">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+</div>
